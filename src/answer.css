@@ -1,0 +1,11 @@
+.answer {
+  background-color: aliceblue;
+  width: 80vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: x-large;
+}
