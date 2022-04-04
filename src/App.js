@@ -1,9 +1,10 @@
-import Quiz from './quiz.js';
+import Quiz from './components/quiz.js';
+import data from './db.js';
 
 function App() {
   return (
     <div className="App">
-      <Quiz />
+      <Quiz data={data} />
     </div>
   );
 }
