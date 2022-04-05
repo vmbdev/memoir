@@ -1,0 +1,38 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+}
+
+.sidebar__divider {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar__links {
+  background-color: #FF6B6B;
+  overflow-x: hidden;
+}
+
+.sidebar__links a {
+  color: white;
+}
+
+.sidebar__links--state-hidden {
+  width: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar__links--state-visible {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .sidebar__links--state-visible {
+    width: 500px;
+  }
+}

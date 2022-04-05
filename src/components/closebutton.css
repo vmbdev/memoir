@@ -1,0 +1,9 @@
+.closebutton {
+  width: 35px;
+  height: 35px;
+  background-color: #FF6B6B;
+  color: white;
+  border: 2px solid #ff0000;
+  border-left: 0;
+  border-top: 0;
+}
