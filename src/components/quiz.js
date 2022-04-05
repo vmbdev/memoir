@@ -1,13 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
 import Answer from './answer.js';
 import Question from './question.js';
-import NextButton from './nextbutton.js';
 import Questionnaire from '../services/questionnaire.js';
 import './quiz.css';
 
 function Quiz (props) {
   const questionnaire = useRef();
-  let question = useRef();
+  const question = useRef();
   const [text, setText] = useState("Cargando...");
   const [answer, setAnswer] = useState("Cargando...");
 
@@ -38,8 +37,7 @@ function Quiz (props) {
   return(
     <div className="quiz">
       <Question text={ text } />
-      <Answer text={ answer } />
-      <NextButton clickHandler={ nextQuestion } />
+      <Answer text={ answer } handleAnswer={ nextQuestion } />
     </div>
   );
 } 

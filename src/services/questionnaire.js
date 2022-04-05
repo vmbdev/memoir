@@ -14,7 +14,6 @@ class Questionnaire {
   retrieveQuestion() {
     if (this.questionsLeft()) {
       let statement = this.db[this.id].data.pop();
-      console.log(statement);
       let regex_result = statement.match(/(?<=\[{3})(.*?)(?=\]{3})/g);
       let question = {};
    

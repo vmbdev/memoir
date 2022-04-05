@@ -3,17 +3,30 @@ import { useState, useEffect } from 'react';
 
 function Answer(props) {
   const [text, setText] = useState("Mostrar");
+  const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
     setText("Mostrar");
+    setRevealed(false);
   }, [props.text]);
   
-  function handleClick() {
-    setText(props.text);
+  const handleClick = () => {
+    if (revealed === false) {
+      setText(props.text);
+      setRevealed(true);
+    }
+  }
+
+  const getClass = () => {
+    return "answer answer--state-" + (revealed ? "revealed" : "hidden");
   }
 
   return(
-    <div className="answer" onClick={ handleClick }>
+    <div className={getClass()} onClick={ () => {
+      handleClick();
+      if (revealed === true)
+        props.handleAnswer()
+    } }>
         {text}
     </div>
   );
