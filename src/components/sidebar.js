@@ -1,22 +1,22 @@
-import { useState } from 'react';
-import CloseButton from './closebutton';
+import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import CloseButton from './closebutton.js';
 import './sidebar.css';
 
 function Sidebar(props) {
-  const [visible, setVisibility] = useState(true);
+  const [visible, setVisibility] = useState(false);
 
   const getLinksClass = () => {
-    return "sidebar__links sidebar__links--state-" + (visible ? "visible" : "hidden");
+    return "sidebar__linkdivider sidebar__linkdivider--state-" + (visible ? "visible" : "hidden");
   }
 
   return(
     <nav id="sidebar" className="sidebar">
       <div className="sidebar__divider">
         <div className={ getLinksClass() }>
-          <ul>
-            { props.linkList.map(item => <li key={ item.index }><a href={ "/chapter/" + item.index }>{ item.title }</a></li>) }
+          <ul className="sidebar__links">
+            { props.linkList.map(item => <li key={ item.index }><Link to={ "/chapter/" + item.index }>{ item.title }</Link></li>) }
           </ul>
-          {/*<a href="#close" onClick={ () => setVisibility(!visible) }>Close</a>*/}
         </div>
         <div>
           <CloseButton handleClose={ () => setVisibility(!visible) } />

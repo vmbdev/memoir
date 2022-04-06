@@ -1,27 +1,28 @@
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Answer from './answer.js';
 import Question from './question.js';
-import Questionnaire from '../services/questionnaire.js';
 import './quiz.css';
 
 function Quiz (props) {
-  const questionnaire = useRef();
   const question = useRef();
   const [text, setText] = useState("Cargando...");
   const [answer, setAnswer] = useState("Cargando...");
 
   useEffect(() => {
-    questionnaire.current = new Questionnaire(props.data)
-    questionnaire.current.load(0);
-    question.current = questionnaire.current.retrieveQuestion();
+    if (props.chapter)
+      props.questionnaire.load(Number.parseInt(props.chapter));
+    else
+      props.questionnaire.load(0);
+
+    question.current = props.questionnaire.retrieveQuestion();
 
     setText(question.current.text);
     setAnswer(question.current.answer);
-  }, [props.data]);
+  }, [props.questionnaire, props.chapter]);
 
   const nextQuestion = () => {
-    if (questionnaire.current.questionsLeft())
-      question.current = questionnaire.current.retrieveQuestion();
+    if (props.questionnaire.questionsLeft())
+      question.current = props.questionnaire.retrieveQuestion();
 
     else {
       question.current = {

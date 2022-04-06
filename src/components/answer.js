@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from 'react';
 import './answer.css';
-import { useState, useEffect } from 'react';
 
 function Answer(props) {
   const [text, setText] = useState("Mostrar");

@@ -35,6 +35,10 @@ class Questionnaire {
     return (this.db[this.id].data.length > 0);
   }
 
+  chapterExists(chapter) {
+    return (chapter < this.db.length);
+  }
+
 }
 
 export default Questionnaire;

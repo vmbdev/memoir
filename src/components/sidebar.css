@@ -12,27 +12,31 @@
   flex-direction: row;
 }
 
-.sidebar__links {
+.sidebar__linkdivider {
   background-color: #FF6B6B;
   overflow-x: hidden;
 }
 
-.sidebar__links a {
+.sidebar__linkdivider a {
   color: white;
 }
 
-.sidebar__links--state-hidden {
+.sidebar__linkdivider--state-hidden {
   width: 0;
 }
 
+.sidebar__links {
+  width: 80%;
+}
+
 @media screen and (max-width: 700px) {
-  .sidebar__links--state-visible {
+  .sidebar__linkdivider--state-visible {
     width: 100%;
   }
 }
 
 @media screen and (min-width: 700px) {
-  .sidebar__links--state-visible {
+  .sidebar__linkdivider--state-visible {
     width: 500px;
   }
 }
