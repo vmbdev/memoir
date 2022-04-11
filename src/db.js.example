@@ -1,0 +1,16 @@
+const db = [
+  {
+    title: "Chapter 1",
+    data: [
+      "Sentence one with [[[one possible answer]]], or [[[two]]], and even [[[three]]].
+    ]
+  },
+    {
+    title: "Chapter 2",
+    data: [
+      "Sentence two with [[[one possible answer]]], or [[[two]]], and even [[[three]]].
+    ]
+  },
+]
+
+export default db;

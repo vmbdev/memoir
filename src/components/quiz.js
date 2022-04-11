@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Answer from './answer.js';
 import Question from './question.js';
+import Counter from './counter.js';
 import './quiz.css';
 
 function Quiz (props) {
@@ -37,6 +38,7 @@ function Quiz (props) {
 
   return(
     <div className="quiz">
+      <Counter resolved={ props.questionnaire.resolved() } total= { props.questionnaire.total() } />
       <Question text={ text } />
       <Answer text={ answer } handleAnswer={ nextQuestion } />
     </div>

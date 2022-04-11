@@ -22,5 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+workers-site
+wrangler.*
+
 package-lock.json
 db.js
