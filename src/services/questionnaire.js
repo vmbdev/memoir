@@ -13,6 +13,15 @@ class Questionnaire {
     this.id = id;
     this.count = 0;
     this.totalcount = this.db[this.id].data.length;
+    this.shuffleQuestions();
+  }
+
+  shuffleQuestions() {
+    let array = this.db[this.id].data;
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
   }
   
   retrieveQuestion() {
@@ -27,7 +36,6 @@ class Questionnaire {
           text: statement.replace(regex_result[index_ans], "___________").replace(/(\[{3})|(\]{3})/g, ""),
           answer: regex_result[index_ans],
         };
-        //let index_db = Math.floor(Math.random() * this.db.length);
       }
       else {
         let words = statement.split(' ');

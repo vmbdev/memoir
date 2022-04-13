@@ -13,12 +13,13 @@
 }
 
 .sidebar__linkdivider {
-  background-color: #FF6B6B;
+  background-color: var(--sidebar-background);
   overflow-x: hidden;
+  color: var(--sidebar-textcolor);
 }
 
 .sidebar__linkdivider a {
-  color: white;
+  color: var(--sidebar-textcolor);
 }
 
 .sidebar__linkdivider--state-hidden {

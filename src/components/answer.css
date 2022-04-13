@@ -10,9 +10,9 @@
 }
 
 .answer--state-hidden {
-  background-color: #4D96FF;
+  background-color: var(--answer-hidden-background);
 }
 
 .answer--state-revealed {
-  background-color: #6BCB77;
+  background-color: var(--answer-resolved-background);
 }

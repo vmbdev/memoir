@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import CloseButton from './closebutton.js';
+import Version from './version.js'
 import './sidebar.css';
 
-function Sidebar(props) {
+const Sidebar = (props) => {
   const [visible, setVisibility] = useState(false);
 
   const getLinksClass = () => {
@@ -17,6 +18,7 @@ function Sidebar(props) {
           <ul className="sidebar__links">
             { props.linkList.map(item => <li key={ item.index }><Link to={ "/chapter/" + item.index }>{ item.title }</Link></li>) }
           </ul>
+          <Version />
         </div>
         <div>
           <CloseButton handleClose={ () => setVisibility(!visible) } />

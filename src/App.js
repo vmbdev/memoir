@@ -5,7 +5,7 @@ import Sidebar from './components/sidebar.js';
 import Questionnaire from './services/questionnaire.js';
 import data from './db.js';
 
-function App() {
+const App = () => {
   const questionnaire = useRef();
   const [qReady, setQReady] = useState(false);
   const { chapter } = useParams();

@@ -22,8 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-workers-site
 wrangler.*
+/memoir
+/dist
 
 package-lock.json
 db.js
+/src/data

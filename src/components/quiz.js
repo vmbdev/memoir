@@ -4,7 +4,7 @@ import Question from './question.js';
 import Counter from './counter.js';
 import './quiz.css';
 
-function Quiz (props) {
+const Quiz = (props) => {
   const question = useRef();
   const [text, setText] = useState("Cargando...");
   const [answer, setAnswer] = useState("Cargando...");

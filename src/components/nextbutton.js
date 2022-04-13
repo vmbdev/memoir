@@ -1,6 +1,6 @@
 import './nextbutton.css';
 
-function NextButton(props) {
+const NextButton = (props) => {
   return(
     <button className="nextbutton" onClick={ props.clickHandler }>Siguiente</button>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './answer.css';
 
-function Answer(props) {
+const Answer = (props) => {
   const [text, setText] = useState("Mostrar");
   const [revealed, setRevealed] = useState(false);
 

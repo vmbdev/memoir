@@ -1,7 +1,7 @@
 import React from 'react';
 import './question.css';
 
-function Question(props) {
+const Question = (props) => {
   return(
     <div className="question">{props.text}</div>
   );
