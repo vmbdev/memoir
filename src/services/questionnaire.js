@@ -4,6 +4,7 @@ class Questionnaire {
     this.id = 0;
     this.count = 0;
     this.totalcount = 0;
+    this.random = true;
   }
 
   load(id) {
@@ -13,7 +14,16 @@ class Questionnaire {
     this.id = id;
     this.count = 0;
     this.totalcount = this.db[this.id].data.length;
-    this.shuffleQuestions();
+
+    if (this.random)
+      this.shuffleQuestions();
+  }
+
+  setRandom(value) {
+    this.random = value;
+
+    if (value)
+      this.shuffleQuestions();
   }
 
   shuffleQuestions() {
@@ -23,10 +33,14 @@ class Questionnaire {
         [array[i], array[j]] = [array[j], array[i]];
     }
   }
+
+  getIndex() {
+    return this.db.map((item, index) => ({index: index, title: item.title}));
+  }
   
   retrieveQuestion() {
     if (this.questionsLeft()) {
-      let statement = this.db[this.id].data.pop();
+      let statement = this.db[this.id].data.shift();
       let regex_result = statement.match(/(?<=\[{3})(.*?)(?=\]{3})/g);
       let question = {};
    

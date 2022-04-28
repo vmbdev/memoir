@@ -17,17 +17,16 @@ const Answer = (props) => {
     }
   }
 
-  const getClass = () => {
-    return "answer answer--state-" + (revealed ? "revealed" : "hidden");
-  }
-
-  return(
-    <div className={getClass()} onClick={ () => {
-      handleClick();
-      if (revealed === true)
-        props.handleAnswer()
-    } }>
-        {text}
+  return (
+    <div
+      className={ "answer answer--state-" + (revealed ? "revealed" : "hidden") }
+      onClick={() => {
+        handleClick();
+        if (revealed === true)
+          props.handleAnswer()
+      }}
+    >
+      {text}
     </div>
   );
 }

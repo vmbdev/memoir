@@ -1,7 +1,7 @@
 import './nextbutton.css';
 
 const NextButton = (props) => {
-  return(
+  return (
     <button className="nextbutton" onClick={ props.clickHandler }>Siguiente</button>
   );
 }
