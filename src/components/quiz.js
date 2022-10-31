@@ -10,10 +10,8 @@ const Quiz = (props) => {
   const [answer, setAnswer] = useState("Cargando...");
 
   useEffect(() => {
-    if (props.chapter)
-      props.questionnaire.load(Number.parseInt(props.chapter));
-    else
-      props.questionnaire.load(0);
+    if (props.chapter) props.questionnaire.load(Number.parseInt(props.chapter));
+    else props.questionnaire.load(0);
 
     question.current = props.questionnaire.retrieveQuestion();
 

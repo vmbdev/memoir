@@ -27,7 +27,8 @@ class Questionnaire {
   }
 
   shuffleQuestions() {
-    let array = this.db[this.id].data;
+    const array = this.db[this.id].data;
+
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
@@ -40,22 +41,27 @@ class Questionnaire {
   
   retrieveQuestion() {
     if (this.questionsLeft()) {
-      let statement = this.db[this.id].data.shift();
-      let regex_result = statement.match(/(?<=\[{3})(.*?)(?=\]{3})/g);
+      const statement = this.db[this.id].data.shift();
+      const regex_result = statement.match(/(?<=\[{3})(.*?)(?=\]{3})/g);
       let question = {};
    
       if ((Array.isArray(regex_result)) && (regex_result.length > 0)) {
-        let index_ans = Math.floor(Math.random() * regex_result.length);
+        const index_ans = Math.floor(Math.random() * regex_result.length);
+        let placeholder;
+      
+        if (this.db[this.id].hidePlaceholder) placeholder = '';
+        else placeholder = "___________";
+
         question = {
-          text: statement.replace(regex_result[index_ans], "___________").replace(/(\[{3})|(\]{3})/g, ""),
+          text: statement.replace(regex_result[index_ans], placeholder).replace(/(\[{3})|(\]{3})/g, ""),
           answer: regex_result[index_ans],
         };
       }
       else {
-        let words = statement.split(' ');
-        let wordcount = words.filter((n) => n !== '').length;
-        let start = Number.parseInt(Math.random() * ((wordcount - 3) - 5) + 5);
-        let newanswer = words.slice(start, start+3).join(' ');
+        const words = statement.split(' ');
+        const wordcount = words.filter((n) => n !== '').length;
+        const start = Number.parseInt(Math.random() * ((wordcount - 3) - 5) + 5);
+        const newanswer = words.slice(start, start+3).join(' ');
         question = {
           text: statement.replace(newanswer, "___________"),
           answer: newanswer,

@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import ToggleButton from './togglebutton.js';
 import './sidebar.css';
 
-const Sidebar = (props) => {
-  const [visible, setVisibility] = useState(false);
+const Sidebar = ({visible, setVisibility, children}) => {
+  useEffect(() => {
+    setVisibility(!!visible);
+  }, [visible, setVisibility]);
 
   return (
     <nav className="sidebar">
       <div className={ "sidebar__divider sidebar__divider--state-" + (visible ? "visible" : "hidden") }>
-        { props.children }
+        { children }
       </div>
       <div>
         <ToggleButton handleClose={ () => setVisibility(!visible) }>

@@ -12,17 +12,27 @@ const App = () => {
   const questionnaire = useRef(new Questionnaire(data));
   const { chapter } = useParams();
   const [randomActive, setRandomActive] = useState(true);
+  const [sidebarVisible, setSidebarVisibility] = useState(false);
 
   const randomToggleChanged = (e) => {
     setRandomActive(e.target.checked);
     questionnaire.current.setRandom(e.target.checked);
   }
 
+  const toggleSidebar = () => {
+    setSidebarVisibility(!sidebarVisible);
+  }
+
   return (
     <div className="App">
-      <Sidebar>
+      <Sidebar visible={ sidebarVisible } setVisibility={ setSidebarVisibility }>
         <ul>
-          { questionnaire.current.getIndex().map(item => <li key={ item.index }><Link to={ "/chapter/" + item.index }>{ item.title }</Link></li>) }
+          {
+            questionnaire.current.getIndex().map((item) =>
+              <li key={ item.index }>
+                <Link to={ "/chapter/" + item.index } onClick={ toggleSidebar }>{ item.title }</Link>
+              </li>)
+          }
         </ul>
         <RandomSelector active={ randomActive } randomToggleChanged={ randomToggleChanged } />
         <Version />
