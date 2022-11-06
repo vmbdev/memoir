@@ -36,7 +36,7 @@ const Quiz = (props) => {
 
   return (
     <div className="quiz">
-      <Counter resolved={ props.questionnaire.resolved() } total={ props.questionnaire.total() } />
+      <Counter title={ props.questionnaire.getChapterTitle() } resolved={ props.questionnaire.resolved() } total={ props.questionnaire.total() } />
       <Question text={ text } />
       <Answer text={ answer } handleAnswer={ nextQuestion } />
     </div>

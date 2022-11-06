@@ -19,6 +19,10 @@ class Questionnaire {
       this.shuffleQuestions();
   }
 
+  getChapterTitle() {
+    return this.db[this.id].title;
+  }
+
   setRandom(value) {
     this.random = value;
 
@@ -36,7 +40,7 @@ class Questionnaire {
   }
 
   getIndex() {
-    return this.db.map((item, index) => ({index: index, title: item.title}));
+    return this.db.map((item, index) => ({index, title: item.title}));
   }
   
   retrieveQuestion() {
