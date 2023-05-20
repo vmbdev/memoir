@@ -1,0 +1,7 @@
+@use 'styles/theme-light.scss' as v;
+
+.app {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: v.$quiz-background;
+}

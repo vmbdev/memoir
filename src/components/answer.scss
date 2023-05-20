@@ -1,0 +1,21 @@
+@use '../styles/theme-light.scss' as v;
+
+.answer {
+  width: 80vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: x-large;
+  cursor: pointer;
+
+  &-hidden {
+    background-color: v.$answer-hidden-background;
+  }
+  
+  &-revealed {
+    background-color: v.$answer-resolved-background;
+  }
+}

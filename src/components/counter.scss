@@ -1,0 +1,19 @@
+.counter {
+  font-weight: bold;
+
+  &__title {
+    margin-right: 10px;
+  }
+
+  &__resolved {
+    color: green;
+
+    &::after {
+      content: '/';
+    }
+  }
+  
+  &__total {
+    color: blue;
+  }
+}
