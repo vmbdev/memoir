@@ -1,5 +1,5 @@
 import React from 'react';
-import './togglebutton.css';
+import './togglebutton.scss';
 
 const ToggleButton = (props) => {
   return (

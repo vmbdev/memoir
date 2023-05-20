@@ -1,11 +1,11 @@
 import React from 'react';
-import './counter.css';
+import './counter.scss';
 
 const Counter = (props) => {
   return (
     <div className="counter">
-      <span className="counter__title">{ props.title }</span>&nbsp;-&nbsp;
-      <span className="counter__resolved">{ props.resolved }</span>&nbsp;/&nbsp;
+      <span className="counter__title">{ props.title }</span>
+      <span className="counter__resolved">{ props.resolved }</span>
       <span className="counter__total">{ props.total }</span>
     </div>
   );

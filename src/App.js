@@ -7,6 +7,7 @@ import Version from './components/version.js'
 import RandomSelector from './components/randomselector.js';
 import Questionnaire from './services/questionnaire.js';
 import data from './db.js';
+import './App.scss';
 
 const App = () => {
   const questionnaire = useRef(new Questionnaire(data));
@@ -24,7 +25,7 @@ const App = () => {
   }
 
   return (
-    <div className="App">
+    <div className="app">
       <Sidebar visible={ sidebarVisible } setVisibility={ setSidebarVisibility }>
         <ul>
           {

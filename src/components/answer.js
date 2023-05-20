@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './answer.css';
+import './answer.scss';
 
 const Answer = (props) => {
   const [text, setText] = useState("Mostrar");
@@ -11,22 +11,21 @@ const Answer = (props) => {
   }, [props.text]);
   
   const handleClick = () => {
-    if (revealed === false) {
+    if (!revealed) {
       setText(props.text);
       setRevealed(true);
+    }
+    else {
+      props.handleAnswer()
     }
   }
 
   return (
     <div
-      className={ "answer answer--state-" + (revealed ? "revealed" : "hidden") }
-      onClick={() => {
-        handleClick();
-        if (revealed === true)
-          props.handleAnswer()
-      }}
+      className={ "answer answer-" + (revealed ? "revealed" : "hidden") }
+      onClick={ handleClick }
     >
-      {text}
+      { text }
     </div>
   );
 }

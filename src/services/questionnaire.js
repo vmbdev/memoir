@@ -8,15 +8,15 @@ class Questionnaire {
   }
 
   load(id) {
-    if (!Number.isInteger(id) || (id < 0) || (id >= this.db.length))
+    if (!Number.isInteger(id) || (id < 0) || (id >= this.db.length)) {
       throw new Error("Failed to load");
+    }
 
     this.id = id;
     this.count = 0;
     this.totalcount = this.db[this.id].data.length;
 
-    if (this.random)
-      this.shuffleQuestions();
+    if (this.random) this.shuffleQuestions();
   }
 
   getChapterTitle() {
@@ -26,16 +26,16 @@ class Questionnaire {
   setRandom(value) {
     this.random = value;
 
-    if (value)
-      this.shuffleQuestions();
+    if (value) this.shuffleQuestions();
   }
 
   shuffleQuestions() {
     const array = this.db[this.id].data;
 
     for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+      const j = Math.floor(Math.random() * (i + 1));
+
+      [array[i], array[j]] = [array[j], array[i]];
     }
   }
 
@@ -66,6 +66,7 @@ class Questionnaire {
         const wordcount = words.filter((n) => n !== '').length;
         const start = Number.parseInt(Math.random() * ((wordcount - 3) - 5) + 5);
         const newanswer = words.slice(start, start+3).join(' ');
+
         question = {
           text: statement.replace(newanswer, "___________"),
           answer: newanswer,
@@ -74,8 +75,7 @@ class Questionnaire {
       this.count++;
       return question;
     }
-    else
-    throw new Error('No questions left');
+    else throw new Error('No questions left');
   }
 
   resolved() {

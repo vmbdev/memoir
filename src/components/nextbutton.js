@@ -1,4 +1,4 @@
-import './nextbutton.css';
+import './nextbutton.scss';
 
 const NextButton = (props) => {
   return (

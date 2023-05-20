@@ -1,12 +1,5 @@
-html {
-  --sidebar-background: black;
-  --sidebar-textcolor: white;
-  --quiz-background: #FFEEEE;
-  --answer-hidden-background: #F7E9D7;
-  --answer-resolved-background: #EBD8C3;
-}
-
 body {
-  background-color: var(--quiz-background);
+  margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
 }

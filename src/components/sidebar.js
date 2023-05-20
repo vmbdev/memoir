@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ToggleButton from './togglebutton.js';
-import './sidebar.css';
+import './sidebar.scss';
 
 const Sidebar = ({visible, setVisibility, children}) => {
   useEffect(() => {
@@ -9,7 +9,7 @@ const Sidebar = ({visible, setVisibility, children}) => {
 
   return (
     <nav className="sidebar">
-      <div className={ "sidebar__divider sidebar__divider--state-" + (visible ? "visible" : "hidden") }>
+      <div className={ "sidebar__divider sidebar__divider-" + (visible ? "visible" : "hidden") }>
         { children }
       </div>
       <div>
